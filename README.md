@@ -10,8 +10,9 @@ config = {studio_token: 'studio token from botkit studio goes here', studio_comm
 var sdk = new SDK(config);
 ```
 
-
 Note the studio token is required, as it will identify your bot. The command uri is optional, and you will only be using it of you have a private command api.
+
+### Botkit Studio SDK Methods
 
 #### sdk.evaluateTrigger(text)
 This will return a promisified script that matches a trigger in your bots scripts at the Botkit Studio API

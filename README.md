@@ -27,14 +27,14 @@ var BKS = require('botkit-studio-sdk');
 config = {studio_token: 'studio token from botkit studio goes here'};
 var bks_client = new BKS(config);
 bks_client.evaluateTrigger('hello how are you').then(function(script_object) {
-
-if (script_object) {
-// a trigger was matched, do something...
-// ... interpret the script object
-} else {
-    // no matching trigger
-}
-
+    // will always return a script_object.
+    // if it couldnt find a script the script_object will be an empty object
+    if (script_object.command) {
+        // a trigger was matched, do something...
+        // ... interpret the script object
+    } else {
+        // no matching trigger
+    }
 }).catch(function(err) {
 
     // an error occured while using the BKS API
@@ -55,9 +55,16 @@ Simple example to get back the 'thank you' script:
 var BKS = require('botkit-studio-sdk');
 config = {studio_token: 'studio token from botkit studio goes here'};
 var bks_client = new BKS(config);
-bks_client.getScript('thank you').then(function(script_object) {
-
-// interpret script object
+bks_client.getScript('thanks').then(function(script_object) {
+    // will always return a script_object.
+    // if it couldnt find a script the script_object will be an empty object
+    // interpret script object
+    if (script_object.command) {
+        // a trigger was matched, do something...
+        // ... interpret the script object
+    } else {
+        // no matching trigger
+    }
 
 }).catch(function(err) {
 

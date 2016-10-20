@@ -70,5 +70,72 @@ This will return your bots 'thank you' command explicitly from the Botkit Studio
 # Script Object Schema
 
 ```
-here is some json
+{  
+   "command":"hello",
+   "description":"Respond when a human says hello!",
+   "triggers":[  
+      {  
+         "type":"string",
+         "pattern":"hello"
+      },
+      {  
+         "type":"string",
+         "pattern":"hey"
+      },
+      {  
+         "type":"string",
+         "pattern":"hi"
+      },
+      {  
+         "type":"string",
+         "pattern":"howdy"
+      }
+   ],
+   "variables":[  
+
+   ],
+   "script":[  
+      {  
+         "topic":"default",
+         "script":[  
+            {  
+               "text":[  
+                  "Hello Human!",
+                  "How do you do?",
+                  "Nice to meet you Human.",
+                  "Hi!",
+                  "How’s it going?",
+                  "Hey!",
+                  "Hey there!",
+                  "Howdy!",
+                  "G`day human!",
+                  "Salut!",
+                  "Ciao!",
+                  "Hola!",
+                  "Shalom!"
+               ]
+            },
+            {  
+               "text":[  
+                  "You can edit it to customize my behaviors."
+               ]
+            },
+            {  
+               "action":"complete"
+            }
+         ]
+      }
+   ],
+   "prehooks":[  
+
+   ],
+   "posthooks":[  
+
+   ],
+   "created":"Wed Sep 14 2016 19:28:39 GMT+0000 (UTC)",
+   "modified":"2016-09-26T18:33:01.302Z",
+   "id":"57d9a4e7f520cf2cdd31f6a3",
+   "botId":"57d9a4e62e723c2c80224561",
+   "deleted":false
+}
 ```

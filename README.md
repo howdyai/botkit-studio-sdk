@@ -75,7 +75,7 @@ This will return your bots 'thank you' command explicitly from the Botkit Studio
 
 
 # Script Object Schema
-
+A flattened script from Botkit Studio API should look something like this:
 ```
 {  
    "command":"hello",

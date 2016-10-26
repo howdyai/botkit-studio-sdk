@@ -132,17 +132,6 @@ A flattened script from Botkit Studio API should look something like this:
             }
          ]
       }
-   ],
-   "prehooks":[  
-
-   ],
-   "posthooks":[  
-
-   ],
-   "created":"Wed Sep 14 2016 19:28:39 GMT+0000 (UTC)",
-   "modified":"2016-09-26T18:33:01.302Z",
-   "id":"57d9a4e7f520cf2cdd31f6a3",
-   "botId":"57d9a4e62e723c2c80224561",
-   "deleted":false
+   ]
 }
 ```

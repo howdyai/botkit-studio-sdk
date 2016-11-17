@@ -6,7 +6,7 @@ and provide a valuable management interface for the bot's dialog content and con
 This SDK allows developers to use the Botkit Studio APIs _without using Botkit_.
 This is useful for bot developers who have existing apps but would benefit from features like bot-specific content management.
 
-## install
+## Install
 
 Install the SDK from npm:
 
@@ -25,7 +25,7 @@ In your bot application, include the library and create an API client:
 var BKS = require('botkit-studio-sdk');
 var bks_client = new BKS({
     studio_token: 'studio token from botkit studio goes here'
-};);
+});
 ```
 
 
@@ -44,8 +44,9 @@ Function returns a promise.
 
 ```javascript
 var BKS = require('botkit-studio-sdk');
-config = {studio_token: 'studio token from botkit studio goes here'};
-var bks_client = new BKS(config);
+var bks_client = new BKS({
+    studio_token: 'studio token from botkit studio goes here'
+});
 bks_client.evaluateTrigger('hello how are you', user_id).then(function(script_object) {
     // will always return a script_object.
     // if it couldnt find a script the script_object will be an empty object
@@ -73,8 +74,9 @@ script identified by _script_name_.
 
 ```javascript
 var BKS = require('botkit-studio-sdk');
-config = {studio_token: 'studio token from botkit studio goes here'};
-var bks_client = new BKS(config);
+var bks_client = new BKS({
+    studio_token: 'studio token from botkit studio goes here'
+});
 bks_client.getScript('thanks', user_id).then(function(script_object) {
     // will always return a script_object.
     // if it couldnt find a script the script_object will be an empty object

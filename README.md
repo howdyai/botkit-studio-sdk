@@ -23,8 +23,9 @@ In your bot application, include the library and create an API client:
 
 ```javascript
 var BKS = require('botkit-studio-sdk');
-config = {studio_token: 'studio token from botkit studio goes here'};
-var bks_client = new BKS(config);
+var bks_client = new BKS({
+    studio_token: 'studio token from botkit studio goes here'
+};);
 ```
 
 

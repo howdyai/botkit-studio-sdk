@@ -1,17 +1,17 @@
 {
   "name": "botkit-studio-sdk",
   "version": "1.0.0",
-  "description": "sdk for integrating with botkit studio",
+  "description": "An SDK for integrating Botkit Studio's trigger and script management APIs into a bot",
   "main": "lib/sdk.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@git.botkit.ai:howdy/botkit-studio-sdk.git"
+    "url": "git@github.com:howdyai/botkit-studio-sdk.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "promise": "^7.1.1",
     "request": "^2.67.0"

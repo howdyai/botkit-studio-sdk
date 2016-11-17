@@ -1,8 +1,25 @@
 # Botkit Studio SDK
 
+[Botkit Studio](https://studio.botkit.ai) is a hosted development tool for bot builders. Botkit Studio will substantially ease the development and deployment of a Bot, help to avoid common coding pitfalls,
+and provide a valuable management interface for the bot's dialog content and configuration. Botkit Studio is a product of [Howdy.ai](http://howdy.ai), the creators of Botkit.
+
+This SDK allows developers to use the Botkit Studio APIs _without using Botkit_.
+This is useful for bot developers who have existing apps but would benefit from features like bot-specific content management.
+
+## install
+
+Install the SDK from npm:
+
+```
+npm install --save botkit-studio-sdk
+```
+
 ## Connecting to Botkit Studio
-you will need to npm install 'botkit-studio-sdk'.
-then in the file you wish to use it in you will need to require the library, and instantiate it with a config file as per the example below.
+
+First, [register for a developer accont with Botkit Studio](https://studio.botkit.ai) and acquire an API token. This will identify your bot and grant your application
+access to the APIs.
+
+In your bot application, include the library and create an API client:
 
 ```javascript
 var BKS = require('botkit-studio-sdk');
@@ -10,23 +27,25 @@ config = {studio_token: 'studio token from botkit studio goes here'};
 var bks_client = new BKS(config);
 ```
 
-Note the studio token is required, as it will identify your bot.
 
 ### Botkit Studio SDK Methods
 
-#### bks_client.evaluateTrigger(input_text)
-This will return a promisified script that matches a trigger in your bots scripts at the Botkit Studio API
-
+#### bks_client.evaluateTrigger(input_text, user_id)
 | Argument | Description
 |--- |---
 | input_text | This is the input string you want to evaluate for possible triggers.
+| user_id | A unique user id representing the user whose input is being evaluated
 
-Simple example to look for the hello script:
+This function uses Botkit Studio's trigger API to test _input text_ against all
+of a bots configured triggers. If a trigger is matched, the matching script will be returned as a JSON object. Otherwise, an empty object will be returned.
+
+Function returns a promise.
+
 ```javascript
 var BKS = require('botkit-studio-sdk');
 config = {studio_token: 'studio token from botkit studio goes here'};
 var bks_client = new BKS(config);
-bks_client.evaluateTrigger('hello how are you').then(function(script_object) {
+bks_client.evaluateTrigger('hello how are you', user_id).then(function(script_object) {
     // will always return a script_object.
     // if it couldnt find a script the script_object will be an empty object
     if (script_object.command) {
@@ -41,21 +60,21 @@ bks_client.evaluateTrigger('hello how are you').then(function(script_object) {
 
 });
 ```
-This will evaluate the text against all of your bots script's triggers and return the hello command for your bot from the Botkit Studio API.
 
-#### bks_client.getScript(script_name)
-This will return a promisified script that matches a specific script in your bots scripts at the Botkit Studio API.
-
+#### bks_client.getScript(script_name, user_id)
 | Argument | Description
 |--- |---
-| script_name | this is the string representation of a specific script you  wish to retrieve.
+| script_name | The name of a script that exists in Botkit Studio
+| user_id | A unique user id representing the user whose input is being evaluated
 
-Simple example to get back the 'thank you' script:
+Returns a promise that, when resolved, receives a JSON object representing the
+script identified by _script_name_.  
+
 ```javascript
 var BKS = require('botkit-studio-sdk');
 config = {studio_token: 'studio token from botkit studio goes here'};
 var bks_client = new BKS(config);
-bks_client.getScript('thanks').then(function(script_object) {
+bks_client.getScript('thanks', user_id).then(function(script_object) {
     // will always return a script_object.
     // if it couldnt find a script the script_object will be an empty object
     // interpret script object
@@ -71,11 +90,9 @@ bks_client.getScript('thanks').then(function(script_object) {
 
 });
 ```
-This will return your bots 'thank you' command explicitly from the Botkit Studio API.
-
 
 # Script Object Schema
-A flattened script from Botkit Studio API should look something like this:
+A script JSON object from Botkit Studio API should look something like this:
 ```
 {  
    "command":"hello",

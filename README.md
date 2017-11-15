@@ -94,6 +94,43 @@ bks_client.getScript('thanks', user_id).then(function(script_object) {
 });
 ```
 
+
+
+#### bks_client.getScripts()
+Returns a promise that, when resolved, receives a JSON array containing
+all of the currently available scripts
+
+```javascript
+var BKS = require('botkit-studio-sdk');
+var bks_client = new BKS({
+    studio_token: 'studio token from botkit studio goes here'
+});
+bks_client.getScripts().then(function(script_list) {
+  // script_list contains an array
+}).catch(function(err) {
+
+
+});
+```
+
+Response to getScripts will be in the format:
+```
+[
+  {
+    name: "script name",
+    description: "script description",
+    triggers: [
+      {
+        type: "string",
+        pattern: "foo"
+      }
+    ]
+  }
+]
+```
+
+
+
 # Script Object Schema
 A script JSON object from Botkit Studio API should look something like this:
 ```

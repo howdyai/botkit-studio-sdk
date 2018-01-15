@@ -96,9 +96,11 @@ bks_client.getScript('thanks', user_id).then(function(script_object) {
 
 
 
-#### bks_client.getScripts()
+#### bks_client.getScripts(optional_tag)
 Returns a promise that, when resolved, receives a JSON array containing
-all of the currently available scripts
+all of the currently available scripts.
+
+Optionally specify a tag value. If specified, only scripts with the specified tag will be returned.
 
 ```javascript
 var BKS = require('botkit-studio-sdk');

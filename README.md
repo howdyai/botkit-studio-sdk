@@ -131,6 +131,10 @@ Response to getScripts will be in the format:
 ]
 ```
 
+#### bks_client.createScript(trigger, text)
+Create a simple script in Botkit Studio with a single trigger and one reply.
+
+Returns a promise that, when resolved, receives an object representing the new script.
 
 
 # Script Object Schema

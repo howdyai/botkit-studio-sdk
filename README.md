@@ -92,6 +92,33 @@ bks_client.getScript('thanks', user_id).then(function(script_object) {
 
 
 });
+
+
+#### bks_client.getScriptById(script_id, user_id)
+| Argument | Description
+|--- |---
+| script_id | The id of a script that exists in Botkit Studio
+| user_id | A unique user id representing the user whose input is being evaluated
+
+Returns a promise that, when resolved, receives a JSON object representing the
+script identified by script_id.  
+
+```javascript
+var BKS = require('botkit-studio-sdk');
+var bks_client = new BKS({
+    studio_token: 'studio token from botkit studio goes here'
+});
+bks_client.getScriptById('5a7381d85d49c200142ed7bf', user_id).then(function(script_object) {
+    if (script_object.command) {
+        // a trigger was matched, do something...
+        // ... interpret the script object
+    } else {
+        // no matching trigger
+    }
+}).catch(function(err) {
+
+
+});
 ```
 
 

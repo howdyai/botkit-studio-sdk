@@ -1,3 +1,11 @@
+# 1.0.8
+
+Add `SDK.getScriptById()` to retrieve script by id.
+
+# 1.0.7
+
+Fix issue where using `get` or `run` on a non-existent script would cause an ugly error.
+
 # 1.0.6
 
 Add optional tag parameter to `SDK.getScripts()` to filter by tag

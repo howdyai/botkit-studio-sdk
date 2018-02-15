@@ -1,6 +1,6 @@
 {
   "name": "botkit-studio-sdk",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "An SDK for integrating Botkit Studio's trigger and script management APIs into a bot",
   "main": "lib/sdk.js",
   "scripts": {

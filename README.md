@@ -92,7 +92,7 @@ bks_client.getScript('thanks', user_id).then(function(script_object) {
 
 
 });
-
+```
 
 #### bks_client.getScriptById(script_id, user_id)
 | Argument | Description

@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git@github.com:howdyai/botkit-studio-sdk.git"
   },
-  "author": "",
+  "author": "benbrown@gmail.com",
   "license": "MIT",
   "dependencies": {
     "promise": "^7.1.1",
